@@ -7,3 +7,4 @@ require 'pry-byebug' #TODO: remove when ready to release
 
 require_relative 'get_seo/version'
 require_relative 'get_seo/seo'
+require_relative 'get_seo/cli'
