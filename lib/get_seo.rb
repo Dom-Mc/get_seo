@@ -1,5 +1,9 @@
-require "get_seo/version"
+#Will act as our environment file
+require 'open-uri'
+require 'nokogiri'
 
-module GetSeo
-  # Your code goes here...
-end
+require 'pry' #TODO: remove when ready to release
+require 'pry-byebug' #TODO: remove when ready to release
+
+require_relative 'get_seo/version'
+require_relative 'get_seo/seo'
