@@ -12,21 +12,34 @@ class GetSeo::Seo
     # NOTE: instatiate a new object
     @seo = self.new
 
-    @heading1 = html.search('h1').map do |h1|
-      h1.text.strip
+    # NOTE: #returns array of values || []
+    @heading1 = html.search("h1").map do |h1|
+      h1.text.strip unless h1.text.strip.empty?
+    end.compact
+
+    # NOTE: #returns array of values || []
+    @heading2 = html.search("h2").map do |h2|
+      h2.text.strip unless h2.text.strip.empty?
+    end.compact
+
+    # NOTE: #returns array of values || []
+    @heading3 = html.search("h3").map do |h3|
+      h3.text.strip unless h3.text.strip.empty?
+    end.compact
+
+    # NOTE: #returns array of values || []
+    if html.at("meta[name='description']").nil? || html.at("meta[name='description']")['content'].nil?
+      @description = []
+    else
+      @description = html.at("meta[name='description']")['content'].strip
     end
 
-    @heading2 = html.search('h1').map do |h2|
-      h2.text.strip
+    # NOTE: #returns array of values || []
+    if html.at("meta[name='keywords']").nil? || html.at("meta[name='keywords']")['content'].nil?
+      @keywords = []
+    else
+      @keywords = html.at("meta[name='keywords']")['content'].strip
     end
-
-    @heading3 = html.search('h1').map do |h3|
-      h3.text.strip
-    end
-
-    @description = html.at('meta[name="description"]')['content'] unless html.at('meta[name="description"]').nil?
-
-    @keywords = html.at('meta[name="keywords"]')['content'] unless html.at('meta[name="keywords"]').nil?
 
     # binding.pry
   end
