@@ -2,15 +2,9 @@
 class GetSeo::CLI
 
   def run
-    get_seo_data
     welcome_message
     seo_options
     goodbye_message
-  end
-
-  def get_seo_data
-    # url = "https://flatironschool.com" # TODO: Remove later
-    seo_info = GetSeo::Seo.setup#(url)
   end
 
   def seo_options
@@ -18,8 +12,12 @@ class GetSeo::CLI
 
     user_input = gets.strip.downcase
 
-    puts "You selected the following #{user_input}"
+    # TODO: replace later
+    requested_url = "http://#{user_input}"
+    puts "You selected the following website #{requested_url}"
 
+    seo_data = GetSeo::Seo.setup(requested_url)
+    binding.pry
   end
 
   def welcome_message
