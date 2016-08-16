@@ -42,8 +42,7 @@ class GetSeo::Seo
       seo.keywords = []
     end
 
-    binding.pry
-
+# binding.pry
     #return our seo object
     seo
   end
