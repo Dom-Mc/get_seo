@@ -1,10 +1,14 @@
 #CLI Controller
 class GetSeo::CLI
 
-  attr_accessor :protocal
+  attr_accessor :protocal, :start_of_program
+
+  def initialize
+    self.start_of_program = true
+  end
 
   def run
-    welcome_message
+    welcome_message if start_of_program
     check_requested_protocal
     seo_options
     goodbye_message
@@ -37,6 +41,9 @@ class GetSeo::CLI
 
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
+
+    #prvent program from running welcome_message
+    self.start_of_program = false
 
     seo_data = GetSeo::Seo.setup(protocal + requested_url)
     # binding.pry
