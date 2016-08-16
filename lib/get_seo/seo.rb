@@ -28,18 +28,18 @@ class GetSeo::Seo
     end.reject(&:empty?)
 
     # NOTE: returns array of values || []
-    if html.at("meta[name='description']").nil? || html.at("meta[name='description']")['content'].nil?
-      seo.description = []
+    if html.at("meta[name='description']") && html.at("meta[name='description']")['content']
+      seo.description = html.at("meta[name='description']")['content'].strip.gsub(/\s+/, " ")
     else
-      seo.description = html.at("meta[name='description']")&['content'].strip.gsub(/\s+/, " ")
+      seo.description = []
     end
 
     # NOTE: returns array of values || []
     # NOTE: possibly call join(', ') on keywords
-    if html.at("meta[name='keywords']").nil? || html.at("meta[name='keywords']")['content'].nil?
-      seo.keywords = []
+    if html.at("meta[name='keywords']") && html.at("meta[name='keywords']")['content']
+      seo.keywords = html.at("meta[name='keywords']")['content'].strip.gsub(/\s+/, " ")
     else
-      seo.keywords = html.at("meta[name='keywords']")&['content'].strip.gsub(/\s+/, " ")
+      seo.keywords = []
     end
 
     binding.pry
