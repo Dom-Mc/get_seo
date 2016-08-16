@@ -4,6 +4,7 @@ class GetSeo::CLI
   def run
     get_seo_data
     welcome_message
+    goodbye_message
   end
 
   def get_seo_data
@@ -13,6 +14,10 @@ class GetSeo::CLI
 
   def welcome_message
     puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
+  end
+
+  def goodbye_message
+    puts "Great SEO work! Job well done."
   end
 
 end
