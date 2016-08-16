@@ -17,10 +17,11 @@ class GetSeo::CLI
     puts "You selected the following website #{requested_url}"
 
     seo_data = GetSeo::Seo.setup(requested_url)
-    binding.pry
+    # binding.pry
 
-
-    puts "Please choose from the following options:",
+  loop do
+    
+    puts "\n\nPlease choose from the following options:",
      "-Display the 'Title' (Enter 1)",
      "-Display the 'Description' (Enter 2)",
      "-List the 'Keywords' (Enter 3)",
@@ -28,9 +29,37 @@ class GetSeo::CLI
      "-List the 'h2 Headings' (Enter 5)",
      "-List the 'h3 Headings' (Enter 6)",
      "-List the 'Alt Attributes' (Enter 7)",
-     "-List all SEO information from the page (Enter 8)",
-     "-Inspect a new page (Enter 9)",
+     "-Inspect a new page (Enter 8)",
      "-Exit the program (Enter 'exit')"
+
+     user_selection = gets.strip.downcase
+
+     case user_selection
+     when '1'
+       puts seo_data.title
+     when '2'
+       puts seo_data.description
+     when '3'
+       puts seo_data.keywords
+     when '4'
+       puts seo_data.heading1
+     when '5'
+       puts seo_data.heading2
+     when '6'
+       puts seo_data.heading3
+     when '7'
+       puts seo_data.alt_attribute
+     when '8'
+        self.run
+     when 'exit'
+       # NOTE: not sure about
+        # goodbye_message
+        break
+     else
+       puts "Sorry but #{user_selection} is invalid, please select another option.\n"
+     end
+
+   end
 
   end
 
