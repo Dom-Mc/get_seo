@@ -28,6 +28,14 @@ class GetSeo::Seo
     end.reject(&:empty?)
 
     # NOTE: returns array of values || []
+    # NOTE: fix later if title is empty
+    if html.search("title").text.empty?
+      seo.title = []
+    else
+      seo.title = html.search("title").text.strip.gsub(/\s+/, " ")
+    end
+
+    # NOTE: returns array of values || []
     if html.at("meta[name='description']") && html.at("meta[name='description']")['content']
       seo.description = html.at("meta[name='description']")['content'].strip.gsub(/\s+/, " ")
     else
@@ -42,7 +50,15 @@ class GetSeo::Seo
       seo.keywords = []
     end
 
-# binding.pry
+    # NOTE: returns array of values || []
+    if html.search('img') && html.at('img')['altt']
+       seo.alt_attribute = html.search('img').map do |img|
+        img['alt']&.strip
+      end.reject(&:empty?)
+    else
+      seo.alt_attribute = []
+    end
+
     #return our seo object
     seo
   end
