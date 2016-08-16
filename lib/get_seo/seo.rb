@@ -14,31 +14,31 @@ class GetSeo::Seo
 
     # NOTE: #returns array of values || []
     seo.heading1 = html.search("h1").map do |h1|
-      h1.text.strip unless h1.text.strip.empty?
+      h1.text.strip.gsub(/\s+/, " ") unless h1.text.strip.empty?
     end.compact
 
     # NOTE: #returns array of values || []
     seo.heading2 = html.search("h2").map do |h2|
-      h2.text.strip unless h2.text.strip.empty?
+      h2.text.strip.gsub(/\s+/, " ") unless h2.text.strip.empty?
     end.compact
 
     # NOTE: #returns array of values || []
     seo.heading3 = html.search("h3").map do |h3|
-      h3.text.strip unless h3.text.strip.empty?
+      h3.text.strip.gsub(/\s+/, " ") unless h3.text.strip.empty?
     end.compact
 
     # NOTE: #returns array of values || []
     if html.at("meta[name='description']").nil? || html.at("meta[name='description']")['content'].nil?
       seo.description = []
     else
-      seo.description = html.at("meta[name='description']")&['content'].strip
+      seo.description = html.at("meta[name='description']")&['content'].strip.gsub(/\s+/, " ")
     end
 
     # NOTE: #returns array of values || []
     if html.at("meta[name='keywords']").nil? || html.at("meta[name='keywords']")['content'].nil?
       seo.keywords = []
     else
-      seo.keywords = html.at("meta[name='keywords']")&['content'].strip
+      seo.keywords = html.at("meta[name='keywords']")&['content'].strip.gsub(/\s+/, " ")
     end
 
     binding.pry
