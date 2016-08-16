@@ -12,29 +12,30 @@ class GetSeo::Seo
     # NOTE: instatiate a new seo object
     seo = self.new
 
-    # NOTE: #returns array of values || []
+    # NOTE: returns array of values || []
     seo.heading1 = html.search("h1").map do |h1|
-      h1.text.strip.gsub(/\s+/, " ") unless h1.text.strip.empty?
-    end.compact
+      h1.text.strip.gsub(/\s+/, " ")
+    end.reject(&:empty?)
 
-    # NOTE: #returns array of values || []
+    # NOTE: returns array of values || []
     seo.heading2 = html.search("h2").map do |h2|
-      h2.text.strip.gsub(/\s+/, " ") unless h2.text.strip.empty?
-    end.compact
+      h2.text.strip.gsub(/\s+/, " ")
+    end.reject(&:empty?)
 
-    # NOTE: #returns array of values || []
+    # NOTE: returns array of values || []
     seo.heading3 = html.search("h3").map do |h3|
-      h3.text.strip.gsub(/\s+/, " ") unless h3.text.strip.empty?
-    end.compact
+      h3.text.strip.gsub(/\s+/, " ")
+    end.reject(&:empty?)
 
-    # NOTE: #returns array of values || []
+    # NOTE: returns array of values || []
     if html.at("meta[name='description']").nil? || html.at("meta[name='description']")['content'].nil?
       seo.description = []
     else
       seo.description = html.at("meta[name='description']")&['content'].strip.gsub(/\s+/, " ")
     end
 
-    # NOTE: #returns array of values || []
+    # NOTE: returns array of values || []
+    # NOTE: possibly call join(', ') on keywords
     if html.at("meta[name='keywords']").nil? || html.at("meta[name='keywords']")['content'].nil?
       seo.keywords = []
     else
