@@ -1,10 +1,35 @@
 #CLI Controller
 class GetSeo::CLI
 
+  attr_accessor :protocal
+
   def run
     welcome_message
+    check_requested_protocal
     seo_options
     goodbye_message
+  end
+
+  def check_requested_protocal
+    loop do
+      puts "\nWhat does the webpage you would like to inspect use 'http' or 'https'?",
+           "-To select 'http' (Enter 1)",
+           "-To select 'https' (Enter 2)"
+           
+      requested_protocal = gets.strip.downcase
+
+      if requested_protocal == '1' || requested_protocal == 'http'
+        self.protocal = 'http://'
+        break
+      elsif requested_protocal == '2' || requested_protocal == 'https'
+        self.protocal = 'https://'
+        break
+      else
+        puts "\t*Sorry but '#{requested_protocal}' is not a valid option.*"
+      end
+    end
+
+    protocal
   end
 
   def seo_options
@@ -20,7 +45,6 @@ class GetSeo::CLI
     # binding.pry
 
   loop do
-    
     puts "\n\nPlease choose from the following options:",
      "-Display the 'Title' (Enter 1)",
      "-Display the 'Description' (Enter 2)",
@@ -58,7 +82,6 @@ class GetSeo::CLI
      else
        puts "Sorry but #{user_selection} is invalid, please select another option.\n"
      end
-
    end
 
   end
