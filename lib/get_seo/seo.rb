@@ -51,7 +51,7 @@ class GetSeo::Seo
     end
 
     # NOTE: returns array of values || []
-    if html.search('img') && html.at('img')['altt']
+    if html.search('img') && html.at('img')['alt']
        seo.alt_attribute = html.search('img').map do |img|
         img['alt']&.strip
       end.reject(&:empty?)
