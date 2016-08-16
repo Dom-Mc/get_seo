@@ -15,7 +15,7 @@ class GetSeo::CLI
       puts "\nWhat does the webpage you would like to inspect use 'http' or 'https'?",
            "-To select 'http' (Enter 1)",
            "-To select 'https' (Enter 2)"
-           
+
       requested_protocal = gets.strip.downcase
 
       if requested_protocal == '1' || requested_protocal == 'http'
@@ -35,13 +35,10 @@ class GetSeo::CLI
   def seo_options
     puts "\nTo inspect a page's SEO information, please enter that page's domain (i.e. example.com):"
 
-    user_input = gets.strip.downcase
+    print protocal # 'http://' or 'https://'
+    requested_url = gets.strip.downcase
 
-    # TODO: replace later
-    requested_url = "http://#{user_input}"
-    puts "You selected the following website #{requested_url}"
-
-    seo_data = GetSeo::Seo.setup(requested_url)
+    seo_data = GetSeo::Seo.setup(protocal + requested_url)
     # binding.pry
 
   loop do
