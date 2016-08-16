@@ -4,9 +4,9 @@ class GetSeo::Seo
   # NOTE: possibly add a 'url' attr_accessor later
   # NOTE: create a method for iterating and printing attributes
 
-  def self.setup#(url)
+  def self.setup(url)
     # NOTE: setup Nokogiri object for scrape
-    url = "https://flatironschool.com" # TODO: Remove later
+    #url = "https://flatironschool.com" # TODO: Remove later
     html = Nokogiri::HTML(open(url))
 
     # NOTE: instatiate a new seo object

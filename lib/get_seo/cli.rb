@@ -15,6 +15,11 @@ class GetSeo::CLI
 
   def seo_options
     puts "\nTo inspect a page's SEO information, please enter that page's domain (i.e. example.com):"
+
+    user_input = gets.strip.downcase
+
+    puts "You selected the following #{user_input}"
+
   end
 
   def welcome_message
