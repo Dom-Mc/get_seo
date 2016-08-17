@@ -39,7 +39,7 @@ class GetSeo::CLI
   end
 
   def seo_options
-    puts "\nTo inspect a page's SEO information, please enter that page's domain (i.e. example.com):"
+    puts "\nIn order to retrieve SEO information, please enter the domain (i.e. example.com) of the webpage you would like to inspect:"
 
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
