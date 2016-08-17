@@ -16,7 +16,8 @@ class GetSeo::CLI
 
   def check_requested_protocal
     loop do
-      puts "\nWhat does the webpage you would like to inspect use 'http' or 'https'?",
+      What does the webpage you would like to inspect use
+      puts "\nCheck the webpage you would like to inspect and find out if it uses 'http' or 'https'?",
       "-To select 'http' (Enter 1)",
       "-To select 'https' (Enter 2)"
 
@@ -39,7 +40,7 @@ class GetSeo::CLI
   end
 
   def seo_options
-    puts "\nIn order to retrieve SEO information, please enter the domain (i.e. example.com) of the webpage you would like to inspect:"
+    puts "\nIn order to retrieve SEO information, please enter the domain of the webpage you would like to inspect (i.e. example.com):"
 
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
@@ -54,7 +55,7 @@ class GetSeo::CLI
     rescue
       section_break
       puts "\n\t*There seems to be an issue with the domain you entered.*",
-      "\t*Please check the website addresss and try again.*"
+      "\t*Please double check the url and try again.*"
       section_break
 
       self.run
