@@ -44,13 +44,13 @@ class GetSeo::CLI
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
 
-    #ensure website can be accessed
+    # ensure website can be accessed
     begin
 
-      #prvent program from running welcome_message
+      # prvent program from running welcome_message
       self.start_of_program = false
 
-      seo_data = GetSeo::Seo.setup(protocal + requested_url)
+      @seo_data = GetSeo::Seo.setup(protocal + requested_url)
     rescue
       section_break
       puts "\n\t*There seems to be an issue with the domain you entered.*",
@@ -59,6 +59,14 @@ class GetSeo::CLI
 
       self.run
     else
+      list_of_options
+    end
+
+  end
+
+  private
+
+    def list_of_options
       loop do
         puts "\n\nPlease choose from the following options:",
         "-Display the 'Title' (Enter 1)",
@@ -75,19 +83,19 @@ class GetSeo::CLI
 
         case user_selection
         when '1'
-          puts seo_data.title
+          puts @seo_data.title
         when '2'
-          puts seo_data.description
+          puts @seo_data.description
         when '3'
-          puts seo_data.keywords
+          puts @seo_data.keywords
         when '4'
-          puts seo_data.heading1
+          puts @seo_data.heading1
         when '5'
-          puts seo_data.heading2
+          puts @seo_data.heading2
         when '6'
-          puts seo_data.heading3
+          puts @seo_data.heading3
         when '7'
-          puts seo_data.alt_attribute
+          puts @seo_data.alt_attribute
         when '8'
           self.run
         when 'exit'
@@ -102,9 +110,6 @@ class GetSeo::CLI
       end
 
     end
-  end
-
-  private
 
     def welcome_message
       puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
@@ -113,7 +118,7 @@ class GetSeo::CLI
     def goodbye_message
       puts "Great SEO work! Job well done."
     end
-  
+
     def section_break
       70.times { print '*' }
     end
