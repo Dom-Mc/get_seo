@@ -26,9 +26,16 @@ class GetSeo::Seo
     seo.heading3 = html.search("h3").map do |h3|
       h3.text.strip.gsub(/\s+/, " ")
     end.reject(&:empty?)
+    #TODO change to reject!
 
     # NOTE: returns array of values || []
-    seo.title = html.search("title").text.empty? ? [] : html.at("title").text
+    seo.title = []
+    if html.at("title").text
+      seo.title << html.at("title").text.strip
+      seo.title.reject!(&:empty?)
+    end
+
+    # seo.title = html.search("title").text.empty? ? [] : html.at("title").text
 
     # NOTE: returns array of values || []
     if html.at("meta[name='description']") && html.at("meta[name='description']")['content']
@@ -42,13 +49,19 @@ class GetSeo::Seo
       n['content'].strip
     end
 
+
+    seo.description = []
+    if html.at("meta[name='description']")
+      seo.description << html.at("meta[name='description']")['content']
+      seo.description.reject(&:empty?)
+    end
+
     # NOTE: returns array of values || []
-    if html.search('img') && html.at('img')['alt']
-       seo.alt_attribute = html.search('img').map do |img|
-        img['alt']&.strip
-      end.compact.reject(&:empty?)
-    else
-      seo.alt_attribute = []
+    seo.alt_attribute = []
+    if html.at('img') && html.at('img')['alt']
+       html.search('img').each do |img|
+        seo.alt_attribute << img['alt']#&.strip
+      end
     end
 
     #return our seo object
