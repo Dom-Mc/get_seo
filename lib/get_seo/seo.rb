@@ -1,6 +1,6 @@
 class GetSeo::Seo
 
-  attr_accessor :heading1, :heading2, :heading3, :keywords, :title, :description, :alt_attribute
+  attr_accessor :heading1, :heading2, :heading3, :keywords, :title, :description, :img_alt_attribute
   # NOTE: possibly add a 'url' attr_accessor later
   # NOTE: create a method for iterating and printing attributes
 
@@ -45,10 +45,10 @@ class GetSeo::Seo
     end
 
     # NOTE: returns array of values || []
+    # TODO: change variable name, add .split
     seo.keywords = html.search("meta[name='keywords']").map do |n|
       n['content'].strip
     end
-
 
     seo.description = []
     if html.at("meta[name='description']")
@@ -57,11 +57,10 @@ class GetSeo::Seo
     end
 
     # NOTE: returns array of values || []
-    seo.alt_attribute = []
     if html.at('img') && html.at('img')['alt']
-       html.search('img').each do |img|
-        seo.alt_attribute << img['alt']#&.strip
-      end
+      seo.img_alt_attribute = html.css('img').map do |img|
+          img['alt'] unless img['alt'].nil? || img['alt'].empty?#&.strip
+      end.compact
     end
 
     #return our seo object
