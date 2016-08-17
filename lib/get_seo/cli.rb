@@ -29,7 +29,9 @@ class GetSeo::CLI
         self.protocal = 'https://'
         break
       else
-        puts "\t*Sorry but '#{requested_protocal}' is not a valid option.*"
+        section_break
+        puts "\n\t*Sorry but '#{requested_protocal}' is not a valid option.*"
+        section_break
       end
     end
 
@@ -50,8 +52,10 @@ class GetSeo::CLI
 
       seo_data = GetSeo::Seo.setup(protocal + requested_url)
     rescue
+      section_break
       puts "\n\t*There seems to be an issue with the domain you entered.*",
       "\t*Please check the website addresss and try again.*"
+      section_break
 
       self.run
     else
@@ -91,7 +95,9 @@ class GetSeo::CLI
           # goodbye_message
           break
         else
-          puts "Sorry but #{user_selection} is invalid, please select another option.\n"
+          section_break
+          puts "\n\t*Sorry but #{user_selection} is invalid, please select another option.*"
+          section_break
         end
       end
 
@@ -105,5 +111,10 @@ class GetSeo::CLI
   def goodbye_message
     puts "Great SEO work! Job well done."
   end
+
+  private
+    def section_break
+      70.times { print '*' }
+    end
 
 end
