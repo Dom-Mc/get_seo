@@ -29,11 +29,7 @@ class GetSeo::Seo
 
     # NOTE: returns array of values || []
     # NOTE: fix later if title is empty
-    if html.search("title").text.empty?
-      seo.title = []
-    else
-      seo.title = html.search("title").text.strip.gsub(/\s+/, " ")
-    end
+    seo.title = html.search("title").text.empty? ? [] : html.at("title").text
 
     # NOTE: returns array of values || []
     if html.at("meta[name='description']") && html.at("meta[name='description']")['content']
