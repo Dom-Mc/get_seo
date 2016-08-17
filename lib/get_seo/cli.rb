@@ -104,15 +104,16 @@ class GetSeo::CLI
     end
   end
 
-  def welcome_message
-    puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
-  end
-
-  def goodbye_message
-    puts "Great SEO work! Job well done."
-  end
-
   private
+
+    def welcome_message
+      puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
+    end
+
+    def goodbye_message
+      puts "Great SEO work! Job well done."
+    end
+  
     def section_break
       70.times { print '*' }
     end
