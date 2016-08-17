@@ -38,11 +38,8 @@ class GetSeo::Seo
     end
 
     # NOTE: returns array of values || []
-    # NOTE: possibly call join(', ') on keywords
-    if html.at("meta[name='keywords']") && html.at("meta[name='keywords']")['content']
-      seo.keywords = html.at("meta[name='keywords']")['content'].strip.gsub(/\s+/, " ")
-    else
-      seo.keywords = []
+    seo.keywords = html.search("meta[name='keywords']").map do |n|
+      n['content'].strip
     end
 
     # NOTE: returns array of values || []
