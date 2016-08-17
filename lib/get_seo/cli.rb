@@ -75,32 +75,30 @@ class GetSeo::CLI
         "-List the 'h1 Headings' (Enter 4)",
         "-List the 'h2 Headings' (Enter 5)",
         "-List the 'h3 Headings' (Enter 6)",
-        "-List the 'Alt Attributes' (Enter 7)",
+        "-List the 'Alt Attributes' (Enter 7)", #TODO change to image alt attr
         "-Inspect a new page (Enter 8)",
         "-Exit the program (Enter 'exit')"
 
         user_selection = gets.strip.downcase
-
+        value = []
         case user_selection
-        when '1'
-          puts @seo_data.title
-        when '2'
-          puts @seo_data.description
-        when '3'
-          puts @seo_data.keywords
-        when '4'
-          puts @seo_data.heading1
-        when '5'
-          puts @seo_data.heading2
+        when '1' #Titles
+          print_seo_data(@seo_data.title, "Titles")
+        when '2' #Descriptions
+          print_seo_data(@seo_data.description, "Descriptions")
+        when '3' #Keywords
+          print_seo_data(@seo_data.keywords, "Keywords")
+        when '4' #h1 Headings
+          print_seo_data(@seo_data.heading1, "h1 Headings")
+        when '5' #h2 Headings
+          print_seo_data(@seo_data.heading2, "h2 Headings")
         when '6'
-          puts @seo_data.heading3
+          print_seo_data(@seo_data.heading3, "h3 Headings")
         when '7'
-          puts @seo_data.alt_attribute
+          print_seo_data(@seo_data.alt_attribute, "Alt Attributes")
         when '8'
           self.run
         when 'exit'
-          # NOTE: not sure about
-          # goodbye_message
           break
         else
           section_break
@@ -117,6 +115,16 @@ class GetSeo::CLI
 
     def goodbye_message
       puts "Great SEO work! Job well done."
+    end
+
+    def print_seo_data(data_attr, name)
+      if data_attr.empty?
+        puts "It looks like this page doesn't have any #{name}."
+      else
+        data_attr.each do |value|
+          puts value
+        end
+      end
     end
 
     def section_break
