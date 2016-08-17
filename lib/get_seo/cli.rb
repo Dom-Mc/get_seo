@@ -16,7 +16,6 @@ class GetSeo::CLI
 
   def check_requested_protocal
     loop do
-      What does the webpage you would like to inspect use
       puts "\nCheck the webpage you would like to inspect and find out if it uses 'http' or 'https'?",
       "-To select 'http' (Enter 1)",
       "-To select 'https' (Enter 2)"
