@@ -128,7 +128,12 @@ class GetSeo::CLI
     end
 
     def section_break
+      print_new_line
       70.times { print '*' }
+    end
+
+    def print_new_line
+      puts "\n"
     end
 
 end
