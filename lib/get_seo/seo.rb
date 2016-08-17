@@ -28,7 +28,6 @@ class GetSeo::Seo
     end.reject(&:empty?)
 
     # NOTE: returns array of values || []
-    # NOTE: fix later if title is empty
     seo.title = html.search("title").text.empty? ? [] : html.at("title").text
 
     # NOTE: returns array of values || []
@@ -50,7 +49,7 @@ class GetSeo::Seo
     if html.search('img') && html.at('img')['alt']
        seo.alt_attribute = html.search('img').map do |img|
         img['alt']&.strip
-      end.reject(&:empty?)
+      end.compact.reject(&:empty?)
     else
       seo.alt_attribute = []
     end
