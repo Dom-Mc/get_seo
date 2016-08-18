@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry", "~> 0.10.4"
-  spec.add_development_dependency "pry-byebug"
+  spec.add_development_dependency "require_all", "~> 1.3", ">= 1.3.3"
 
   # Production
   spec.add_dependency "nokogiri", "~> 1.6"
