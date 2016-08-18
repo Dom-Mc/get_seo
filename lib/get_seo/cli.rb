@@ -16,7 +16,8 @@ class GetSeo::CLI
 
   def check_requested_protocal
     loop do
-      puts "\nCheck the webpage you would like to inspect and find out if it uses 'http' or 'https'?",
+      print_new_line
+      puts "Check the webpage you would like to inspect and find out if it uses 'http' or 'https'?",
       "-To select 'http' (Enter 1)",
       "-To select 'https' (Enter 2)"
 
@@ -30,7 +31,7 @@ class GetSeo::CLI
         break
       else
         section_break
-        puts "\n\t*Sorry but '#{requested_protocal}' is not a valid option.*"
+        puts "\t*Sorry but '#{requested_protocal}' is not a valid option.*"
         section_break
       end
     end
@@ -39,7 +40,8 @@ class GetSeo::CLI
   end
 
   def seo_options
-    puts "\nIn order to retrieve SEO information, please enter the domain of the webpage you would like to inspect (i.e. example.com):"
+    print_new_line
+    puts "In order to retrieve SEO information, please enter the domain of the webpage you would like to inspect (i.e. example.com):"
 
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
@@ -53,7 +55,8 @@ class GetSeo::CLI
       @seo_data = GetSeo::Seo.setup(protocal + requested_url)
     rescue
       section_break
-      puts "\n\t*There seems to be an issue with the domain you entered.*",
+      # print_new_line
+      puts "\t*There seems to be an issue with the domain you entered.*",
       "\t*Please double check the url and try again.*"
       section_break
 
@@ -68,7 +71,8 @@ class GetSeo::CLI
 
     def list_of_options
       loop do
-        puts "\n\nPlease choose from the following options:",
+        print_new_line
+        puts "Please choose from the following options:",
         "-Display the 'Title' (Enter 1)",
         "-Display the 'Description' (Enter 2)",
         "-List the 'Keywords' (Enter 3)",
@@ -95,14 +99,14 @@ class GetSeo::CLI
         when '6'
           print_seo_data(@seo_data.heading3, "h3 Headings")
         when '7'
-          print_seo_data(@seo_data.alt_attribute, "Alt Attributes")
+          print_seo_data(@seo_data.img_alt_attribute, "Alt Attributes")
         when '8'
           self.run
         when 'exit'
           break
         else
           section_break
-          puts "\n\t*Sorry but #{user_selection} is invalid, please select another option.*"
+          puts "\t*Sorry but #{user_selection} is invalid, please select another option.*"
           section_break
         end
       end
@@ -110,19 +114,26 @@ class GetSeo::CLI
     end
 
     def welcome_message
+      print_new_line
       puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
     end
 
     def goodbye_message
+      print_new_line
       puts "Great SEO work! Job well done."
+      print_new_line
     end
 
     def print_seo_data(data_attr, name)
+      section_break
+      puts "\t*#{name.upcase}*"
+      section_break
+
       if data_attr.empty?
-        puts "It looks like this page doesn't have any #{name}."
+        puts "\t*It looks like this page doesn't have any #{name}.*"
       else
         data_attr.each do |value|
-          puts value
+          puts "* #{value}"
         end
       end
     end
@@ -130,8 +141,10 @@ class GetSeo::CLI
     def section_break
       print_new_line
       70.times { print '*' }
+      print_new_line
     end
 
+    # TODO: possible name change
     def print_new_line
       puts "\n"
     end
