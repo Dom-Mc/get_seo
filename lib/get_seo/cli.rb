@@ -78,7 +78,6 @@ class GetSeo::CLI
         "- h2 Heading Tag(s) (Enter 5)",
         "- h3 Heading Tag(s) (Enter 6)",
         "- Image Alt Attribute(s)' (Enter 7)",
-        "- Inspect a different site or page (Enter 8)",
         "- Exit the program (Enter 'exit' or 'quit')"
 
         user_selection = gets.strip.downcase
