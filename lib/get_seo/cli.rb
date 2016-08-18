@@ -16,7 +16,7 @@ class GetSeo::CLI
 
   def check_requested_protocal
     loop do
-      print_new_line
+      print_line_break
       puts "Check the webpage you would like to inspect and find out if it uses 'http' or 'https'?",
       "-To select 'http' (Enter 1)",
       "-To select 'https' (Enter 2)"
@@ -40,22 +40,22 @@ class GetSeo::CLI
   end
 
   def seo_options
-    print_new_line
+    print_line_break
     puts "In order to retrieve SEO information, please enter the domain of the webpage you would like to inspect (i.e. example.com):"
 
     print protocal # 'http://' or 'https://'
     requested_url = gets.strip.downcase
 
-    # ensure website can be accessed
+    # NOTE: Throw an exception if website cannote be accessed
     begin
 
-      # prvent program from running welcome_message
+      # NOTE: pervent welcome_message from displaying more than once
       self.start_of_program = false
 
       @seo_data = GetSeo::Seo.setup(protocal + requested_url)
+
     rescue
       section_break
-      # print_new_line
       puts "\t*There seems to be an issue with the domain you entered.*",
       "\t*Please double check the url and try again.*"
       section_break
@@ -71,7 +71,7 @@ class GetSeo::CLI
 
     def list_of_options
       loop do
-        print_new_line
+        print_line_break
         puts "What information would you like to retrieve?:",
         "-Title Tag (Enter 1)",
         "-Description Meta Tag' (Enter 2)",
@@ -114,14 +114,14 @@ class GetSeo::CLI
     end
 
     def welcome_message
-      print_new_line
+      print_line_break
       puts "Welcome to SEO. Ok enough chitchat, let's get to work!"
     end
 
     def goodbye_message
-      print_new_line
+      print_line_break
       puts "Great SEO work! Job well done."
-      print_new_line
+      print_line_break
     end
 
     def print_seo_data(data_attr, name)
@@ -139,13 +139,13 @@ class GetSeo::CLI
     end
 
     def section_break
-      print_new_line
+      print_line_break
       70.times { print '*' }
-      print_new_line
+      print_line_break
     end
 
     # TODO: possible name change
-    def print_new_line
+    def print_line_break
       puts "\n"
     end
 
