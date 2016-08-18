@@ -11,8 +11,11 @@ class GetSeo::CLI
     welcome_message if start_of_program
     check_requested_protocal
     seo_options
+    list_of_options
     goodbye_message
   end
+
+  private
 
   def check_requested_protocal
     loop do
@@ -61,17 +64,14 @@ class GetSeo::CLI
       section_break
 
       self.run
-    else
-      list_of_options
+    #   list_of_options
     end
 
   end
 
-
-  private
-
     def list_of_options
       loop do
+
         print_line_break
         puts "What information would you like to retrieve?:",
         "- Title Tag (Enter 1)",
@@ -81,11 +81,11 @@ class GetSeo::CLI
         "- h2 Heading Tag(s) (Enter 5)",
         "- h3 Heading Tag(s) (Enter 6)",
         "- Image Alt Attribute(s)' (Enter 7)",
-        "- Inspect a different site or page (Enter 8)",
         "- Exit the program (Enter 'exit')"
 
         user_selection = gets.strip.downcase
-        value = []
+        break if user_selection == "exit"
+
         case user_selection
         when '1'
           print_seo_data(@seo_data.title, "Title Tag")
@@ -101,10 +101,6 @@ class GetSeo::CLI
           print_seo_data(@seo_data.heading3, "h3 Heading Tag(s)")
         when '7'
           print_seo_data(@seo_data.img_alt_attribute, "Image Alt Attribute(s)")
-        when '8'
-          self.run
-        when 'exit'
-          break
         else
           section_break
           puts "\t*Sorry but '#{user_selection}' is invalid, please select another option.*"
