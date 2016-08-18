@@ -73,15 +73,15 @@ class GetSeo::CLI
       loop do
         print_line_break
         puts "What information would you like to retrieve?:",
-        "-Title Tag (Enter 1)",
-        "-Description Meta Tag' (Enter 2)",
-        "-Keyword Meta Tag (Enter 3)",
-        "-h1 Heading Tag(s) (Enter 4)",
-        "-h2 Heading Tag(s) (Enter 5)",
-        "-h3 Heading Tag(s) (Enter 6)",
-        "-Image Alt Attribute(s)' (Enter 7)",
-        "-Inspect a different site or page (Enter 8)",
-        "-Exit the program (Enter 'exit')"
+        "- Title Tag (Enter 1)",
+        "- Description Meta Tag' (Enter 2)",
+        "- Keyword Meta Tag (Enter 3)",
+        "- h1 Heading Tag(s) (Enter 4)",
+        "- h2 Heading Tag(s) (Enter 5)",
+        "- h3 Heading Tag(s) (Enter 6)",
+        "- Image Alt Attribute(s)' (Enter 7)",
+        "- Inspect a different site or page (Enter 8)",
+        "- Exit the program (Enter 'exit')"
 
         user_selection = gets.strip.downcase
         value = []
@@ -144,7 +144,6 @@ class GetSeo::CLI
       print_line_break
     end
 
-    # TODO: possible name change
     def print_line_break
       puts "\n"
     end
