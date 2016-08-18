@@ -10,9 +10,9 @@ Gem::Specification.new do |spec|
   spec.email         = ["dom.mckellar@gmail.com"]
 
   # TODO: complete
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = ""
+  spec.summary       = %q{Quickly and easily inspect SEO information from websites of your choice.}
+  spec.description   = %q{Get Seo allows you to avoid browser extensions and immediately fetch SEO information you desire. Simply enter the url of a website you’d like to inspect, select the SEO related information you would like to retrieve, and Get Seo will display your results via the terminal.}
+  spec.homepage      = "https://github.com/Dom-Mc/get_seo"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
