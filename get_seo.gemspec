@@ -6,10 +6,9 @@ require 'get_seo/version'
 Gem::Specification.new do |spec|
   spec.name          = "get_seo"
   spec.version       = GetSeo::VERSION
-  spec.authors       = ["Dom McKellar"]
+  spec.author        = ["Dom McKellar"]
   spec.email         = ["dom.mckellar@gmail.com"]
 
-  # TODO: complete
   spec.summary       = %q{Quickly and easily inspect SEO information from websites of your choice.}
   spec.description   = %q{Get Seo allows you to avoid browser extensions and immediately fetch SEO information you desire. Simply enter the url of a website you’d like to inspect, select the SEO related information you would like to retrieve, and Get Seo will display your results via the terminal.}
   spec.homepage      = "https://github.com/Dom-Mc/get_seo"
