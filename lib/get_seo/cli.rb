@@ -72,34 +72,34 @@ class GetSeo::CLI
     def list_of_options
       loop do
         print_new_line
-        puts "Please choose from the following options:",
-        "-Display the 'Title' (Enter 1)",
-        "-Display the 'Description' (Enter 2)",
-        "-List the 'Keywords' (Enter 3)",
-        "-List the 'h1 Headings' (Enter 4)",
-        "-List the 'h2 Headings' (Enter 5)",
-        "-List the 'h3 Headings' (Enter 6)",
-        "-List the 'Alt Attributes' (Enter 7)", #TODO change to image alt attr
-        "-Inspect a new page (Enter 8)",
+        puts "What information would you like to retrieve?:",
+        "-Title Tag (Enter 1)",
+        "-Description Meta Tag' (Enter 2)",
+        "-Keyword Meta Tag (Enter 3)",
+        "-h1 Heading Tag(s) (Enter 4)",
+        "-h2 Heading Tag(s) (Enter 5)",
+        "-h3 Heading Tag(s) (Enter 6)",
+        "-Image Alt Attribute(s)' (Enter 7)",
+        "-Inspect a different site or page (Enter 8)",
         "-Exit the program (Enter 'exit')"
 
         user_selection = gets.strip.downcase
         value = []
         case user_selection
-        when '1' #Titles
-          print_seo_data(@seo_data.title, "Titles")
-        when '2' #Descriptions
-          print_seo_data(@seo_data.description, "Descriptions")
-        when '3' #Keywords
-          print_seo_data(@seo_data.keywords, "Keywords")
-        when '4' #h1 Headings
-          print_seo_data(@seo_data.heading1, "h1 Headings")
-        when '5' #h2 Headings
-          print_seo_data(@seo_data.heading2, "h2 Headings")
+        when '1'
+          print_seo_data(@seo_data.title, "Title Tag")
+        when '2'
+          print_seo_data(@seo_data.description, "Description Meta Tag")
+        when '3'
+          print_seo_data(@seo_data.keywords, "Keywords Meta Tag")
+        when '4'
+          print_seo_data(@seo_data.heading1, "h1 Heading Tag(s)")
+        when '5'
+          print_seo_data(@seo_data.heading2, "h2 Heading Tag(s)")
         when '6'
-          print_seo_data(@seo_data.heading3, "h3 Headings")
+          print_seo_data(@seo_data.heading3, "h3 Heading Tag(s)")
         when '7'
-          print_seo_data(@seo_data.img_alt_attribute, "Alt Attributes")
+          print_seo_data(@seo_data.img_alt_attribute, "Image Alt Attribute(s)")
         when '8'
           self.run
         when 'exit'
