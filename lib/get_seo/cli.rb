@@ -130,7 +130,7 @@ class GetSeo::CLI
       section_break
 
       if data_attr.empty?
-        puts "\t*It looks like this page doesn't have any #{name}.*"
+        puts "\t*#{name} - Not found on page.*"
       else
         data_attr.each do |value|
           puts "* #{value}"
