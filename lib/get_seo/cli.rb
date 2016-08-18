@@ -106,7 +106,7 @@ class GetSeo::CLI
           break
         else
           section_break
-          puts "\t*Sorry but #{user_selection} is invalid, please select another option.*"
+          puts "\t*Sorry but '#{user_selection}' is invalid, please select another option.*"
           section_break
         end
       end
