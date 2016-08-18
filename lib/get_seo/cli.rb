@@ -67,6 +67,7 @@ class GetSeo::CLI
 
   end
 
+
   private
 
     def list_of_options

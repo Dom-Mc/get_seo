@@ -2,8 +2,8 @@
 
 require "bundler/setup"
 
-#loads main library
+# NOTE: loads main library
 require "get_seo"
 
-#call to start program (file located in lib/get_seo/cli.rb)
+# NOTE: call to start program (file located in lib/get_seo/cli.rb)
 GetSeo::CLI.new.run
