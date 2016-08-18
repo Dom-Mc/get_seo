@@ -6,4 +6,4 @@ require "bundler/setup"
 require "get_seo"
 
 # NOTE: call to start program (file located in lib/get_seo/cli.rb)
-GetSeo::CLI.new.run
+GetSeo::CLI.new.run_program
