@@ -68,11 +68,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ### Dominic McKellar
 
-* Website | [domckellar.com](http://domckellar.com/)
+* Website: [domckellar.com](http://domckellar.com/)
 
-* Blog | [newme.io](http://newme.io/)
+* Blog: [newme.io](http://newme.io/)
 
-* Github | [@Dom-Mc](https://github.com/Dom-Mc)
+* Github: [@Dom-Mc](https://github.com/Dom-Mc)
 
 ## Contributing
 
