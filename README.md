@@ -1,6 +1,6 @@
 # GetSeo
 
-Welcome to [GetSeo](https://rubygems.org/gems/get_seo)! This is a CLI based gem that allows you to quickly and easily inspect various SEO metrics from websites of your choice. Simply enter the url of a website you’d like to inspect, select the SEO metric you would like to retrieve, and [GetSeo](https://rubygems.org/gems/get_seo) will display your results via the terminal.
+[GetSeo](https://rubygems.org/gems/get_seo) is a CLI built in ruby. It allows you to quickly and easily inspect various SEO metrics from any website. Simply enter the url of a website you’d like to inspect, select the SEO metric you wish to retrieve, and your results will be displayed in the terminal.
 
 ---
 
@@ -74,10 +74,13 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 * Github: [@Dom-Mc](https://github.com/Dom-Mc)
 
+---
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/get_seo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+---
 
 ## License
 
