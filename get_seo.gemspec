@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Quickly and easily inspect various SEO metrics from any website.}
   spec.description   = %q{GetSeo allows you to avoid browser extensions and immediately fetch SEO various SEO metrics. Simply enter the url of a website you’d like to inspect, select the SEO metric you'd like to retrieve, and GetSeo will display your results via the terminal.}
-  spec.homepage      = "https://http://newme.io/get_seo/"
+  spec.homepage      = "http://newme.io/get_seo/"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
