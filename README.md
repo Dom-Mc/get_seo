@@ -1,6 +1,6 @@
-# GetSeo
+# GetSEO
 
-[GetSeo](https://rubygems.org/gems/get_seo) is a CLI built in ruby. It allows you to quickly and easily inspect various SEO metrics from any website. Simply enter the url of a website you’d like to inspect, select the SEO metric you wish to retrieve, and your results will be displayed in the terminal.
+[GetSEO](https://rubygems.org/gems/get_seo) is a CLI built in ruby. It allows you to quickly and easily inspect various SEO metrics from any website. Simply enter the url of a website you’d like to inspect, select the SEO metric you wish to retrieve, and your results will be displayed in the terminal.
 
 ---
 
